@@ -52,11 +52,11 @@ AlphameticSolver <- function() {
     solutions[1:length(solutions)] <- combination.candidates[i, ]
     for (j in 1:length(left.indexes)) {
       left.comp[left.indexes[j]] <- solutions[names(solutions) == left[left.indexes[j]]]
-	}
+    }
     for (k in 1:length(right.indexes)) {
       right.comp[right.indexes[k]] <- solutions[names(solutions) == right[right.indexes[k]]]
-	}
-	if (eval(parse(text=paste(left.comp, collapse=""))) == eval(parse(text=paste(right.comp, collapse="")))
+    }
+    if (eval(parse(text=paste(left.comp, collapse=""))) == eval(parse(text=paste(right.comp, collapse="")))
         & right.comp[1] != 0) {
       res = c(res, paste(paste(left.comp, collapse=""), paste(right.comp, collapse=""), sep="="))
     } 
