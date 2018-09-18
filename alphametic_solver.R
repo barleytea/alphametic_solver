@@ -48,7 +48,7 @@ AlphameticSolver <- function() {
   combination.candidates <- recite.permutations(length(letters.candidates))
   combination.candidates <- combination.candidates[combination.candidates[,1] != 0, ]
   for (i in 1:dim(combination.candidates)[1]) {
-	left.comp <- left; right.comp <- right;
+    left.comp <- left; right.comp <- right;
     solutions[1:length(solutions)] <- combination.candidates[i, ]
     for (j in 1:length(left.indexes)) {
       left.comp[left.indexes[j]] <- solutions[names(solutions) == left[left.indexes[j]]]
