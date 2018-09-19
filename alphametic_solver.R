@@ -43,7 +43,7 @@ AlphameticSolver <- function() {
 
   solutions <- rep(0, length(letters.candidates))
   names(solutions) <- letters.candidates
- 
+
   res = c()
   combination.candidates <- recite.permutations(length(letters.candidates))
   combination.candidates <- combination.candidates[combination.candidates[,1] != 0, ]
@@ -56,10 +56,11 @@ AlphameticSolver <- function() {
     for (k in 1:length(right.indexes)) {
       right.comp[right.indexes[k]] <- solutions[names(solutions) == right[right.indexes[k]]]
     }
-    if (eval(parse(text=paste(left.comp, collapse=""))) == eval(parse(text=paste(right.comp, collapse="")))
-        & right.comp[1] != 0) {
-      res = c(res, paste(paste(left.comp, collapse=""), paste(right.comp, collapse=""), sep="="))
-    } 
+    left.pasted <- paste(left.comp, collapse="")
+    right.pasted <- paste(right.comp, collapse="")
+    if (eval(parse(text=left.pasted) == eval(parse(text=right.pasted) & right.comp[1] != 0) { # XXX
+      res <- c(res, paste(left.pasted, right.pasted, sep="="))
+    }
   }
 
   for (i in 1:length(res)) {
