@@ -36,8 +36,8 @@ AlphameticSolver <- function() {
   left.indexes <- which(!(left %in% OPERANDS))
   right.indexes <- which(!(right %in% OPERANDS))
 
-  left.items <- unlist((strsplit(paste(left, collapse=""), "\\+")))
-  right.items <- unlist((strsplit(paste(left, collapse=""), "\\+")))
+  left.items <- unlist((strsplit(paste(left, collapse=""), "(\\+|\\-|\*)")))
+  right.items <- unlist((strsplit(paste(right, collapse=""), "(\\+|\\-|\\*)")))
 
   letters.candidates <- unique(splitted[!(splitted %in% OPERANDS)])
 
