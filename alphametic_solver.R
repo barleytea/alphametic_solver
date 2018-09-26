@@ -115,14 +115,14 @@ AlphameticSolver <- function() {
   }
   if (length(LINES) == 1) {
     for (i in 1:length(res.expr)) {
-      write(res.expr[i], stdout())
+      write(paste0(res.expr[i], ifelse(i != length(res.expr), "\n", "")), stdout())
     }
   } else {
     res.ind <- res.ind <- which(mapply(any, duplicated(res.solution), duplicated(res.solution, fromLast=TRUE)))
     res <- matrix(res.expr[res.ind], nrow=length(LINES), ncol=length(res.ind)/2, byrow=TRUE)
     for (i in 1:dim(res)[2]) {
       for (j in 1:dim(res)[1]) {
-        write(res[j, i], stdout())
+        write(paste0(res[j, i], ifelse(i != dim(res)[2] & j == dim(res)[1], "\n", "")), stdout())
       }
     }
   }
